@@ -1,0 +1,30 @@
+
+# Rust / Cargo
+/target/
+
+# Distribuição
+/dist/
+*.exe
+*.pdb
+
+# Arquivos temporários
+*.log
+*.tmp
+*.bak
+*.orig
+*.swp
+
+# Configurações locais
+.env
+.env.*
+!.env.example
+
+# IDEs
+.idea/
+.vscode/
+.vs/
+
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store

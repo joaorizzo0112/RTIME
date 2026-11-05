@@ -1,0 +1,25 @@
+# RTIME v0.3.20 - arquivos principais (SHA-256)
+# Entradas originais: valores fornecidos pelo autor, sem verificacao dos arquivos locais.
+# Entradas adicionadas: hashes de arquivos do pacote anterior Rtime v0.3.20.
+# ATENCAO: este arquivo mistura snapshots. Regere com gerar-sha256.ps1 antes de publicar.
+
+866f66cd4afaeb75d0082d5f19d3fd844e29533b83441f66c9cde872634d3bad  Cargo.toml
+242b8b526e21cc91c4fdee9636e9d858fa85e222f870da77ca694985a3ed8da5  Cargo.lock
+f175d7c9e9dfd1e52a45838742d79d4677a6b8f0b58c4cf367b0f1eeb99efa42  src/main.rs
+09db3720fd16295a88b4933180ad6d81784e4f211192d1d7391ab5ae77ad2a27  src/native.rs
+9ebddd30c02f6af3b1f9e81aeb916438f021d387a5c1e1c23df39dc71b755447  src/native/config.rs
+936a36b13c63916fa71c1dec68064dc6d76cea72f951a2d69fada9b25c2a50f9  src/native/settings_layout.rs
+3dea5acf8fac6fb6983e83b67119b17288f7569e7d58d9d8cf4824ef27f26aaa  src/native/metrics.rs
+e8bb0ef41926667c867de04b4f30e147cd593c7bda9ed3ce7d2331b79688f0ba  src/native/layout.rs
+ea6678e7398101b6e408a11455f4ff8a9390ea9a40ab0350953265e84896fe9f  src/native/editor_layout.rs
+4c590312384ab01fccc31025d374b337566c6858aac9050817d6873be0d488c0  src/native/card_layout.rs
+de58d389ca6f989a91602e84548af0856d521d409c998ca7953f3fbdf52e4058  build-windows.ps1
+59f2a9a81aad4bf21c546ca0dcfd40b25091f96754bcc404861c1fb4a9832c69  README.md
+8def57d0ec9d566ed43818182f9e3a74b93ef9c49e2fcda527f6af5d4ec29d63  DESCRICAO-REPOSITORIO.txt
+
+# Arquivos adicionais (calcular novamente na pasta atual antes da publicacao):
+c315f3e5a2a61461abd643b032f7fa5bb35d15c0a466b3d652496067b83111e6  build.rs
+8c5cc051a7dd72afd40d43a060d3a4958cecf3f6eb8588479cbf377d5dee789f  src/native/desktop.rs
+ae29a93ab976eb88fe527bc60623276c0bcc0c77da6977b4c723eab7bcdb5fb8  assets/rtime.ico
+3df6848078a4a1c439dedb0c7b29a76534d97aee9a5cc030756e9ea3ece3eef4  .gitignore
+242119e6be6ba0bc1dc2202a02bde1c3319e65a2b85473d54cd24e5ba0ebfae0  LICENSE

@@ -1,0 +1,25 @@
+name: Windows Rust
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+      - name: Format
+        run: cargo fmt --all
+      - name: Testes
+        run: cargo test --release
+      - name: Compilar
+        run: cargo build --release
+      - name: Publicar executável
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rtime-Windows-x64
+          path: target/release/rtime.exe
+          if-no-files-found: error
