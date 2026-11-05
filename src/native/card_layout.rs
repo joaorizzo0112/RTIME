@@ -81,7 +81,6 @@ impl CardTextLayout {
         );
         let mut layout = match kind {
             MetricKind::Processes => {
-                
                 let (value, subtitle, heading, rows, row_count, row_px) = if horizontal {
                     (
                         BoxRect::new(margin, 42, 188, 45),
@@ -320,7 +319,7 @@ impl CardTextLayout {
                 secondary_label_px: 0,
             },
         };
-        
+
         layout.value_px = match font_preference {
             1 => layout.value_px + if compact { 2 } else { 4 },
             2 => (layout.value_px - if compact { 2 } else { 4 }).max(18),

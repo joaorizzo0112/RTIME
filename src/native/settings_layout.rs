@@ -196,7 +196,7 @@ impl UiLayout {
         UiRect::new(x, y, w.max(1), COMBO_POPUP_HEIGHT)
     }
 
-     pub fn appearance_preview(self) -> UiRect {
+    pub fn appearance_preview(self) -> UiRect {
         let r = self.right;
         UiRect::new(r.x + 17, r.y + 68, (r.w - 34).max(1), 215)
     }
@@ -430,7 +430,7 @@ mod tests {
                     "id={id}, w={w}, rect={r:?}, panel={:?}",
                     l.left
                 );
-     
+
                 assert!(r.y >= l.left.y && r.y < l.left.bottom());
             }
             let edit = l.control_rect(OPEN_EDITOR, UiRect::new(641, 493, 228, 46));

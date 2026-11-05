@@ -182,7 +182,7 @@ impl Default for Config {
             positions: positions_for(1),
             theme: 0,
             interface_theme: 0,
-            style: 1, 
+            style: 1,
             accent: 0,
             size: 1,
             card_sizes: [1; N],

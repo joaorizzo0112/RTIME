@@ -57,7 +57,6 @@ pub const FIELD_TITLES: [&str; 11] = [
 
 #[derive(Clone, Debug)]
 pub struct EditorLayout {
-
     #[cfg_attr(not(test), allow(dead_code))]
     pub stacked: bool,
     pub heading: EditorRect,
@@ -256,7 +255,6 @@ mod tests {
     }
     #[test]
     fn scroll_keeps_action_buttons_at_distinct_positions() {
-
         for width in [620, 919, 920, 1190, 1600] {
             let layout = EditorLayout::new(width);
             for shift in [0, 15, 60, 135, 450, 800] {

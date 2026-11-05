@@ -104,7 +104,7 @@ impl Sampler {
     }
 
     pub fn read(&mut self, disk_selection: u32, adapter_selection: u32) -> Metrics {
-         if self.last_disk_selection != disk_selection {
+        if self.last_disk_selection != disk_selection {
             self.last_disk_selection = disk_selection;
             self.last_disk = None;
             self.previous.disk_pct = 0.0;
@@ -148,7 +148,7 @@ impl Sampler {
                     mem.ullTotalPhys.saturating_sub(mem.ullAvailPhys) as f64 / 1073741824.0;
             }
 
-             if self.last_disk.map_or(true, |last| {
+            if self.last_disk.map_or(true, |last| {
                 now.duration_since(last) >= Duration::from_secs(10)
             }) {
                 self.last_disk = Some(now);
@@ -175,11 +175,11 @@ impl Sampler {
             if GetIfTable2(&mut table) == 0 && !table.is_null() {
                 let mut down = 0u64;
                 let mut up = 0u64;
-                 let len = ((*table).NumEntries as usize).min(4096);
+                let len = ((*table).NumEntries as usize).min(4096);
                 let rows = std::slice::from_raw_parts((*table).Table.as_ptr(), len);
                 let mut matched = false;
                 for interface in rows {
-                     if interface.OperStatus == 1
+                    if interface.OperStatus == 1
                         && interface.Type != 24
                         && (adapter_selection == 0 || interface.InterfaceIndex == adapter_selection)
                     {
@@ -194,7 +194,7 @@ impl Sampler {
                 result.up_mib = 0.0;
                 result.network_total_bytes = 0;
                 if matched {
-                     result.network_total_bytes = down.saturating_add(up);
+                    result.network_total_bytes = down.saturating_add(up);
                     if let Some((prev_down, prev_up, prev_time)) = self.previous_network {
                         let dt = sample_at.duration_since(prev_time).as_secs_f64();
                         if dt >= 0.1 && down >= prev_down && up >= prev_up {
@@ -208,7 +208,7 @@ impl Sampler {
                 }
                 FreeMibTable(table.cast());
             } else {
-                 result.network_available = false;
+                result.network_available = false;
                 result.down_mib = 0.0;
                 result.up_mib = 0.0;
                 result.network_total_bytes = 0;
@@ -229,7 +229,7 @@ impl Sampler {
                     if Process32FirstW(snapshot, &mut entry) != 0 {
                         loop {
                             count = count.saturating_add(1);
-                             let handle = OpenProcess(
+                            let handle = OpenProcess(
                                 PROCESS_QUERY_LIMITED_INFORMATION,
                                 0,
                                 entry.th32ProcessID,
@@ -271,7 +271,7 @@ impl Sampler {
     }
 }
 
- pub fn disk_root(selection: u32) -> String {
+pub fn disk_root(selection: u32) -> String {
     if let Some(letter) = letter_for_disk(selection) {
         format!("{}:\\", letter)
     } else {
@@ -294,7 +294,7 @@ pub fn disk_label(selection: u32) -> String {
     }
 }
 
- pub fn available_drives() -> Vec<(u32, String)> {
+pub fn available_drives() -> Vec<(u32, String)> {
     let mut output = Vec::new();
     unsafe {
         let mask = GetLogicalDrives();
@@ -324,7 +324,7 @@ pub fn disk_label(selection: u32) -> String {
     output
 }
 
- pub fn available_adapters() -> Vec<(u32, String)> {
+pub fn available_adapters() -> Vec<(u32, String)> {
     let mut output = Vec::new();
     unsafe {
         let mut table: *mut MIB_IF_TABLE2 = null_mut();
@@ -392,7 +392,7 @@ pub fn fmt_network(value_mib: f64) -> String {
     }
 }
 
- pub fn fmt_network_total(bytes: u64) -> String {
+pub fn fmt_network_total(bytes: u64) -> String {
     if bytes == 0 {
         return "0 KiB".to_string();
     }
